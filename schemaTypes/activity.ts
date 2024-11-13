@@ -57,8 +57,8 @@ export const activityType = defineType({
     defineField({
       name: 'body',
       title: 'Beschrijving',
-      type: 'array',
-      of: [{type: 'block'}],
+      type: 'text',
+      rows: 5,
     }),
     defineDatetimeField({
       name: 'publishedAt',
