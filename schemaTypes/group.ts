@@ -1,9 +1,9 @@
 import { defineField, defineType } from "sanity";
-import { RenderIcon } from "../src/Icon/Icon.utils";
+import { RenderIcon } from "../src/components/Icon/Icon.utils";
 
 export const groupType = defineType({
   name: 'group',
-  title: 'Groep',
+  title: 'Takken',
   type: 'document',
   icon: () => RenderIcon('home-smile-2-line'),
   fields: [

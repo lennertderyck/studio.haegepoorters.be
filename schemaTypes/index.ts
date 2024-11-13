@@ -4,6 +4,6 @@ import { groupType } from "./group";
 
 export const schemaTypes = [
   groupType, 
-  activityType,
   activityPeriodType,
+  activityType,
 ]

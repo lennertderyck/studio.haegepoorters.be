@@ -1,39 +1,38 @@
 import dayjs from "dayjs";
-import { defineType } from "sanity";
-import { RenderIcon } from "../src/Icon/Icon.utils";
+import { defineField, defineType } from "sanity";
+import { RenderIcon } from "../src/components/Icon/Icon.utils";
+import { defineDatetimeField } from "../src/fields/datetime";
 
 export const activityPeriodType = defineType({
   name: 'activityPeriod',
-  title: 'Periode',
+  title: 'Periodes',
   type: 'document',
   icon: () => RenderIcon('calendar-schedule-line'),
   fields: [
-    {
+    defineField({
       name: 'editable',
       title: 'Bewerkbaar',
       type: 'boolean',
       initialValue: true,
-    },
-    {
+    }),
+    defineField({
       name: 'published',
       title: 'Gepubliceerd',
       type: 'boolean',
       initialValue: false,
-    },
-    {
+    }),
+    defineDatetimeField({
       name: 'startDate',
       title: 'Startdatum',
-      type: 'datetime',
       initialValue: () => new Date().toISOString(),
       validation: (rule) => rule.required(),
-    },
-    {
+    }),
+    defineDatetimeField({
       name: 'endDate',
       title: 'Einddatum',
-      type: 'datetime',
       initialValue: () => dayjs().add(3, 'months').toISOString(),
       validation: (rule) => rule.required(),
-    },
+    }),
   ],
   preview: {
     select: {

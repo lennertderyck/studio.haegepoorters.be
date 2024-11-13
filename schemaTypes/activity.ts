@@ -1,9 +1,11 @@
+import dayjs from "dayjs";
 import { defineField, defineType } from "sanity";
-import { RenderIcon } from "../src/Icon/Icon.utils";
+import { RenderIcon } from "../src/components/Icon/Icon.utils";
+import { defineDatetimeField } from "../src/fields/datetime";
 
 export const activityType = defineType({
   name: 'activity',
-  title: 'Activiteit',
+  title: 'Activiteiten',
   type: 'document',
   icon: () => RenderIcon('calendar-2-line'),
   fields: [
@@ -14,38 +16,55 @@ export const activityType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: 'body',
-      type: 'array',
-      of: [{type: 'block'}],
+      name: 'type',
+      title: 'Type activiteit',
+      type: 'string',
+      validation: (rule) => rule.required(),
+      initialValue: 'default',
+      options: {
+        layout: 'dropdown',
+        list: [
+          {title: 'Vergadering', value: 'default'},
+          {title: 'Meerdaagse', value: 'multi'},
+          {title: 'Kamp', value: 'camp'},
+        ],
+      }
+    }),
+    defineDatetimeField({
+      name: 'startDate',
+      title: 'Startdatum',
+      initialValue: () => dayjs().set('hour', 14).set('minute', 0).toISOString(),
+      validation: (rule) => rule.required(),
+    }),
+    defineDatetimeField({
+      name: 'endDate',
+      title: 'Einddatum',
+      initialValue: () => dayjs().add(3, 'hour').toISOString(),
+      validation: (rule) => rule.required(),
+      hidden: ({document}) => document?.type === 'default', 
     }),
     defineField({
       name: 'group',
+      title: 'Tak',
       type: 'reference',
       to: [{type: 'group'}],
+      initialValue: () => ({
+        _ref: 'c2d6e24d-3602-496b-ad48-26ec1982b0e3',
+        _type: 'reference',
+      }),
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'body',
+      title: 'Beschrijving',
+      type: 'array',
+      of: [{type: 'block'}],
+    }),
+    defineDatetimeField({
       name: 'publishedAt',
-      type: 'datetime',
+      readOnly: true,
       initialValue: () => new Date().toISOString(),
       validation: (rule) => rule.required(),
     }),
-    defineField({
-      name: 'startDate',
-      type: 'datetime',
-      initialValue: () => new Date().toISOString(),
-      validation: (rule) => rule.required(),
-    }),
-    defineField({
-      name: 'endDate',
-      type: 'datetime',
-      initialValue: () => new Date().toISOString(),
-      validation: (rule) => rule.required(),
-    }),
-    defineField({
-      name: 'period',
-      type: 'reference',
-      to: [{type: 'activityPeriod'}],
-    })
   ],
 })
