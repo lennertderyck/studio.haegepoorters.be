@@ -26,7 +26,9 @@ export const activityType = defineType({
         list: [
           {title: 'Vergadering', value: 'default'},
           {title: 'Meerdaagse', value: 'multi'},
+          {title: 'Weekend', value: 'weekend'},
           {title: 'Kamp', value: 'camp'},
+          {title: 'Geen vergadering', value: 'none'},
         ],
       }
     }),
@@ -62,7 +64,7 @@ export const activityType = defineType({
     }),
     defineDatetimeField({
       name: 'publishedAt',
-      readOnly: true,
+      readOnly: process.env.NODE_ENV !== 'development',
       initialValue: () => new Date().toISOString(),
       validation: (rule) => rule.required(),
     }),
