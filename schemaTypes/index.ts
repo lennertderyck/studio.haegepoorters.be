@@ -1,13 +1,7 @@
-import { activityType } from "./activity";
-import { activityPeriodType } from "./activityPeriod";
-import { groupType } from "./group";
-import { roleType } from "./role";
-import { staffType } from "./staff";
+import {activityType} from './activity'
+import {articleType} from './article'
+import {groupType} from './group'
+import {roleType} from './role'
+import {staffType} from './staff'
 
-export const schemaTypes = [
-  groupType, 
-  activityPeriodType,
-  activityType,
-  staffType,
-  roleType,
-]
+export const schemaTypes = [articleType, activityType, groupType, staffType, roleType]
