@@ -1,13 +1,13 @@
-import dayjs from "dayjs";
-import { defineField, defineType } from "sanity";
-import { RenderIcon } from "../src/components/Icon/Icon.utils";
-import { defineDatetimeField } from "../src/fields/datetime";
+import dayjs from 'dayjs'
+import {defineField, defineType} from 'sanity'
+import {RenderIcon} from '../src/components/Icon/Icon.utils'
+import {defineDatetimeField} from '../src/fields/datetime'
 
 export const activityPeriodType = defineType({
   name: 'activityPeriod',
   title: 'Periodes',
   type: 'document',
-  icon: () => RenderIcon('calendar-schedule-line'),
+  icon: RenderIcon('calendar-schedule-line'),
   fields: [
     defineField({
       name: 'editable',
@@ -40,14 +40,14 @@ export const activityPeriodType = defineType({
       endDate: 'endDate',
     },
     prepare(selection) {
-      const { startDate, endDate } = selection;
-      const yearsDiffer = dayjs(startDate).year() !== dayjs(endDate).year();
-      const dateFormat = yearsDiffer ? 'DD MMMM YYYY' : 'DD MMMM';
-      
+      const {startDate, endDate} = selection
+      const yearsDiffer = dayjs(startDate).year() !== dayjs(endDate).year()
+      const dateFormat = yearsDiffer ? 'DD MMMM YYYY' : 'DD MMMM'
+
       return {
         title: `${dayjs(startDate).format(dateFormat)} tot ${dayjs(endDate).format(dateFormat)}`,
         // title: `${new Date(startDate).toLocaleDateString()} - ${new Date(endDate).toLocaleDateString()}`,
       }
-    }
-  }
+    },
+  },
 })

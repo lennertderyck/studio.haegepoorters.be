@@ -6,7 +6,7 @@ export const articleType = defineType({
   name: 'article',
   title: 'Nieuwsberichten',
   type: 'document',
-  icon: () => RenderIcon('newspaper-line'),
+  icon: RenderIcon('newspaper-line'),
   fields: [
     defineField({
       name: 'title',

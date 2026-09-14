@@ -1,11 +1,11 @@
-import { defineField, defineType } from "sanity";
-import { RenderIcon } from "../src/components/Icon/Icon.utils";
+import {defineField, defineType} from 'sanity'
+import {RenderIcon} from '../src/components/Icon/Icon.utils'
 
 export const groupType = defineType({
   name: 'group',
   title: 'Takken',
   type: 'document',
-  icon: () => RenderIcon('home-smile-2-line'),
+  icon: RenderIcon('home-smile-2-line'),
   fields: [
     defineField({
       name: 'name',
@@ -30,9 +30,7 @@ export const groupType = defineType({
     {
       title: 'Volgorde',
       name: 'orderAsc',
-      by: [
-        {field: 'order', direction: 'asc'}
-      ]
-    }
-  ]
-});
+      by: [{field: 'order', direction: 'asc'}],
+    },
+  ],
+})

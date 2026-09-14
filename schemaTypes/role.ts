@@ -1,11 +1,11 @@
-import { defineType } from "sanity";
-import { RenderIcon } from "../src/components/Icon/Icon.utils";
+import {defineType} from 'sanity'
+import {RenderIcon} from '../src/components/Icon/Icon.utils'
 
 export const roleType = defineType({
   name: 'role',
   title: 'Functies',
   type: 'document',
-  icon: () => RenderIcon('shield-star-line'),
+  icon: RenderIcon('shield-star-line'),
   fields: [
     {
       name: 'label',
@@ -24,19 +24,18 @@ export const roleType = defineType({
       title: 'Linken aan',
       type: 'reference',
       to: [
-        {type: 'group', name: 'group'}, 
-        {type: 'role', name: 'role'}
+        {type: 'group', name: 'group'},
+        {type: 'role', name: 'role'},
       ],
-      description: 'Link deze functie aan een groep of een andere functie zodat dit op de website getoond kan worden.',
+      description:
+        'Link deze functie aan een groep of een andere functie zodat dit op de website getoond kan worden.',
     },
   ],
   orderings: [
     {
       title: 'Volgorde',
       name: 'orderAsc',
-      by: [
-        {field: 'order', direction: 'asc'}
-      ]
-    }
-  ]
-});
+      by: [{field: 'order', direction: 'asc'}],
+    },
+  ],
+})
