@@ -32,7 +32,7 @@ export const roleType = defineType({
     },
     {
       name: 'groepsadministratieReference',
-      title: 'Referentie binnen Groepsadministratie (rol-code)',
+      title: 'Referentie naar Groepsadministratie (rol-code)',
       type: 'string',
       description:
         'Dit helpt bij het automatisch toewijzen van een rol aan leiding via de Groepsadministratie.',
