@@ -1,5 +1,5 @@
-import {defineType} from 'sanity'
-import {RenderIcon} from '../src/components/Icon/Icon.utils'
+import { defineType } from 'sanity';
+import { RenderIcon } from '../src/components/Icon/Icon.utils';
 
 export const staffType = defineType({
   name: 'staff',
@@ -57,6 +57,13 @@ export const staffType = defineType({
       type: 'array',
       of: [{type: 'reference', to: [{type: 'role', options: {filter: 'order >= 0'}}]}],
       validation: (rule) => rule.required(),
+    },
+    {
+      name: 'groepsadministratieReference',
+      title: 'Lidnummer',
+      type: 'string',
+      description:
+        'Optioneel. Het lidnummer van de persoon. Op deze manier kunnen we leiding automatisch identificeren.',
     },
   ],
 })

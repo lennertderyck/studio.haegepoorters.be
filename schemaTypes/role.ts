@@ -30,6 +30,13 @@ export const roleType = defineType({
       description:
         'Link deze functie aan een groep of een andere functie zodat dit op de website getoond kan worden.',
     },
+    {
+      name: 'groepsadministratieReference',
+      title: 'Referentie binnen Groepsadministratie (rol-code)',
+      type: 'string',
+      description:
+        'Dit helpt bij het automatisch toewijzen van een rol aan leiding via de Groepsadministratie.',
+    },
   ],
   orderings: [
     {
