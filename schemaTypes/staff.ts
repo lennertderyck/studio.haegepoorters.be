@@ -56,7 +56,6 @@ export const staffType = defineType({
       title: 'Functies',
       type: 'array',
       of: [{type: 'reference', to: [{type: 'role', options: {filter: 'order >= 0'}}]}],
-      validation: (rule) => rule.required(),
     },
     {
       name: 'groepsadministratieReference',
