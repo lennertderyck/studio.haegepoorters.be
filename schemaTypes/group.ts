@@ -1,5 +1,5 @@
-import {defineField, defineType} from 'sanity'
-import {RenderIcon} from '../src/components/Icon/Icon.utils'
+import { defineField, defineType } from 'sanity';
+import { RenderIcon } from '../src/components/Icon/Icon.utils';
 
 export const groupType = defineType({
   name: 'group',
@@ -24,6 +24,12 @@ export const groupType = defineType({
       title: 'Volgorde',
       type: 'number',
       validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'link',
+      title: 'Linken aan',
+      type: 'array',
+      of: [{type: 'reference', to: [{type: 'role'}]}],
     }),
   ],
   orderings: [
