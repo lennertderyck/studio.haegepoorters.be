@@ -1,13 +1,13 @@
-import {visionTool} from '@sanity/vision'
-import dayjs from 'dayjs'
-import 'dayjs/locale/nl-be'
-import {defineConfig} from 'sanity'
-import {presentationTool} from 'sanity/presentation'
-import {structureTool} from 'sanity/structure'
-import {schemaTypes} from './schemaTypes'
-import {RenderIcon} from './src/components/Icon/Icon.utils'
-import {resolve} from './src/presentation/resolve'
-import {structure} from './src/structure'
+import { visionTool } from '@sanity/vision';
+import dayjs from 'dayjs';
+import 'dayjs/locale/nl-be';
+import { defineConfig } from 'sanity';
+import { presentationTool } from 'sanity/presentation';
+import { structureTool } from 'sanity/structure';
+import { schemaTypes } from './schemaTypes';
+import { RenderIcon } from './src/components/Icon/Icon.utils';
+import { resolve } from './src/presentation/resolve';
+import { structure } from './src/structure';
 
 dayjs.locale('nl-be')
 

@@ -25,6 +25,14 @@ export const staffType = defineType({
   ],
   fields: [
     {
+      name: 'cover',
+      title: 'Leidingsfoto',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    },
+    {
       name: 'firstName',
       title: 'Voornaam',
       type: 'string',
@@ -49,7 +57,6 @@ export const staffType = defineType({
       name: 'phoneNumber',
       title: 'Telefoon',
       type: 'string',
-      validation: (rule) => rule.required(),
     },
     {
       name: 'roles',
