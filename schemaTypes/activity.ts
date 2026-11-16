@@ -1,8 +1,8 @@
-import dayjs from 'dayjs'
-import {defineField, defineType} from 'sanity'
-import {AvailableIcons} from '../src/components/Icon/Icon.types'
-import {RenderIcon} from '../src/components/Icon/Icon.utils'
-import {defineDatetimeField} from '../src/fields/datetime'
+import dayjs from 'dayjs';
+import { defineField, defineType } from 'sanity';
+import { AvailableIcons } from '../src/components/Icon/Icon.types';
+import { RenderIcon } from '../src/components/Icon/Icon.utils';
+import { defineDatetimeField } from '../src/fields/datetime';
 
 const MULTI_DAY_TYPES = ['multi', 'weekend', 'camp']
 
@@ -98,7 +98,7 @@ export const activityType = defineType({
       name: 'group',
       title: 'Tak',
       type: 'reference',
-      to: [{type: 'group'}],
+      to: [{type: 'group'}, {type: 'entity'}],
       initialValue: () => ({
         _ref: 'c2d6e24d-3602-496b-ad48-26ec1982b0e3',
         _type: 'reference',

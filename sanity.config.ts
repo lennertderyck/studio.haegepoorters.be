@@ -4,10 +4,26 @@ import 'dayjs/locale/nl-be';
 import { defineConfig } from 'sanity';
 import { presentationTool } from 'sanity/presentation';
 import { structureTool } from 'sanity/structure';
-import { schemaTypes } from './schemaTypes';
+import { activityType } from './schemaTypes/activity';
+import { articleType } from './schemaTypes/article';
+import { contentType } from './schemaTypes/content';
+import { entityType } from './schemaTypes/entity';
+import { groupType } from './schemaTypes/group';
+import { roleType } from './schemaTypes/role';
+import { staffType } from './schemaTypes/staff';
 import { RenderIcon } from './src/components/Icon/Icon.utils';
 import { resolve } from './src/presentation/resolve';
 import { structure } from './src/structure';
+
+const SUPPORTED_SCHEMATYPES = [
+  articleType,
+  activityType,
+  contentType,
+  groupType,
+  staffType,
+  roleType,
+  entityType,
+]
 
 dayjs.locale('nl-be')
 
@@ -35,7 +51,7 @@ export default defineConfig({
   ],
 
   schema: {
-    types: schemaTypes,
+    types: SUPPORTED_SCHEMATYPES,
     templates: (prev) => [
       ...prev.filter((template) => template.id !== 'content'),
       {
